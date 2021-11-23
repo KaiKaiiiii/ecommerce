@@ -1,0 +1,205 @@
+.detail {
+  &__show {
+    @include flexBox();
+    width: 100%;
+  }
+  &__small-img-list {
+    margin-right: 2rem;
+    & *:not(:first-child) {
+      margin-top: 1rem;
+    }
+  }
+  &__smail-img-item.active {
+    outline: 1px solid $black;
+    outline-offset: 0.3rem;
+  }
+  &__main-img {
+    width: 40rem;
+    height: 60rem;
+    margin-right: 7rem;
+    flex-shrink: 0;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__info {
+    width: 100%;
+    @include flexBox();
+    flex-direction: column;
+  }
+  &__breadcum {
+    @include flexBox(center);
+    margin-bottom: 3rem;
+    & * {
+      margin-right: 1rem;
+      font-size: 1.4rem;
+    }
+    & .detail__item i {
+      margin-left: 1rem;
+      color: #bdbdbd;
+      font-size: 1rem;
+    }
+  }
+  &__price {
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+  }
+  &__color {
+    @include flexBox();
+    &-list {
+      @include flexBox();
+      margin-left: 3rem;
+      & * {
+        margin-right: 1rem;
+      }
+    }
+  }
+  &__size {
+    @include flexBox(flex-start);
+    margin-bottom: 4rem;
+    &-list {
+      @include flexBox();
+      margin-left: 3rem;
+
+      & * {
+        margin-right: 1rem;
+        flex-shrink: 0;
+      }
+    }
+  }
+  &__toclick {
+    @include flexBox(center, space-between);
+    font-size: 1.4rem;
+    margin-bottom: 5rem;
+    // width: 70%;
+  }
+  &__quantity {
+    width: 11rem;
+    height: 4rem;
+    background-color: #f2f2f2;
+    padding: 0 2rem;
+    @include flexBox(center, space-between);
+    border-radius: 100rem;
+  }
+  &__add {
+    @include flexBox(center);
+    & i {
+      @include flexBox(center, center);
+      width: 4rem;
+      height: 4rem;
+      border-radius: 100rem;
+      background-color: $black;
+      color: #fff;
+      margin-left: 2rem;
+    }
+  }
+
+  &__favorite {
+    cursor: pointer;
+    &-icon {
+      @include flexBox(center, center);
+      @include linearTransition(0.25s);
+      width: 3rem;
+      height: 3rem;
+      border-radius: 100rem;
+      background-color: #f2f2f2;
+      font-size: 1rem;
+    }
+  }
+
+  &__code,
+  &__type {
+    font-size: 1.4rem;
+    color: $grey82;
+  }
+  &__type span {
+    color: #eb5757;
+  }
+
+  &__social {
+    &-list {
+      @include flexBox(flex-end);
+      flex-grow: 1;
+    }
+    &-item {
+      margin-left: 3rem;
+      font-size: 1.4rem;
+    }
+    &-link {
+      color: $black;
+    }
+  }
+
+  //start content
+  &__desc {
+    margin-top: 10rem;
+    &-header {
+      @include flexBox(center, space-between);
+      width: 47rem;
+      margin: 0 auto;
+      font-size: 2rem;
+      color: #bdbdbd;
+      margin-bottom: 3rem;
+    }
+  }
+  &__header {
+    &-item.active {
+      color: $black;
+    }
+    &-item {
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.desc__content {
+  &-item {
+    margin-bottom: 2rem;
+  }
+  &-list {
+    margin-top: 1rem;
+    // list-style-type: circle;
+  }
+  &-item:first-child &-list &-smallitem::before {
+    color: $grey82;
+  }
+  &-desc,
+  &-smallitem {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  &-smallitem::before {
+    content: "\2022";
+    color: #eb5757;
+    font-weight: bold;
+    display: inline-block;
+    width: 1rem;
+  }
+
+  //start detail related
+}
+
+.detail__related {
+  margin-top: 10rem;
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  &-item {
+    text-decoration: none;
+  }
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &-name {
+    color: $black;
+  }
+}

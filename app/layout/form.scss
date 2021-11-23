@@ -1,0 +1,51 @@
+.form {
+  &__wrapper {
+    width: 45rem;
+    margin: 0 auto;
+  }
+  &__header {
+    @include flexBox(baseline);
+    &-link {
+      margin-left: 2rem;
+      font-size: 1.4rem;
+      color: $black;
+      border-bottom: 1px solid $black;
+      text-decoration: none;
+    }
+  }
+  &__main {
+    &-input {
+      width: 100%;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid#E0E0E0;
+      margin-bottom: 6rem;
+      &:first-child {
+        margin: 6rem 0;
+      }
+    }
+  }
+  &__advice {
+    @include flexBox(center, space-between);
+    font-size: 1.4rem;
+  }
+  &__remember {
+    @include flexBox(center, center);
+    & input {
+      margin-right: 0.4rem;
+      border-color: #bdbdbd;
+    }
+  }
+  &__lost-password {
+    color: $black;
+  }
+
+  &__policy {
+    line-height: 1.6;
+    font-size: 1.2rem;
+    color: #bdbdbd;
+    & a {
+      color: $black;
+    }
+  }
+}

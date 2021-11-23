@@ -1,0 +1,110 @@
+.contact {
+  &__header {
+    @include flexBox(center, center, column);
+    text-align: center;
+  }
+  &__list {
+    @include flexBox(center, space-between);
+    gap: 2rem;
+    margin: 8rem 0 10rem;
+  }
+  &__item {
+    @include flexBox(center, center, column);
+    text-align: center;
+    font-size: 1.2rem;
+    &-icon {
+      margin-bottom: 6rem;
+      font-size: 2rem;
+    }
+    &-heading {
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    &-info {
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      color: $grey82;
+    }
+    &-link {
+      color: $black;
+    }
+  }
+  &__header-desc {
+    max-width: 50%;
+  }
+  &__form-wrapper,
+  &__accordion-wrapper {
+    @include flexBox(flex-start, space-between);
+    gap: 2rem;
+  }
+
+  &__accordion-wrapper {
+    margin-top: 10rem;
+  }
+
+  &__main-form,
+  &__accordion {
+    width: 40%;
+  }
+  &__main-form {
+    @include flexBox(flex-start, flex-start, column);
+    font-family: "Merriweather Sans", sans-serif;
+    & *:not(:last-child) {
+      width: 100%;
+      margin-bottom: 2rem;
+      padding: 1rem 0;
+      outline: none;
+      border: none;
+      border-bottom: 2px solid #e0e0e0;
+    }
+  }
+  &__form-btn {
+    margin-top: 2rem;
+    cursor: pointer;
+  }
+
+  &__accordion {
+    &-item {
+      // max-height: 7rem;
+      padding: 2rem 0;
+      cursor: pointer;
+      & * {
+        pointer-events: none;
+      }
+      &-header {
+        @include flexBox(center, flex-start);
+        border-bottom: 2px solid #e0e0e0;
+      }
+      &-content {
+        padding: 2rem 3rem;
+        border: 2px solid #e0e0e0;
+        border-top: none;
+        font-size: 1.2rem;
+        line-height: 2;
+        color: $grey82;
+        display: none;
+      }
+      &:hover i {
+        animation: rotate 2s infinite;
+      }
+
+      & i {
+        margin-right: 2rem;
+        width: 1rem;
+        height: 1rem;
+        @include flexBox(center, center);
+        transform-origin: 50% 50%;
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

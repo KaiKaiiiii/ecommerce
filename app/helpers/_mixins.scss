@@ -1,0 +1,152 @@
+@mixin flexBetween($direction: "row") {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flexCenter($direction: "row") {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+@mixin flexBaseline($direction: "row") {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+@mixin flexBox(
+  $align: "flex-start",
+  $justify: "flex-start",
+  $direction: "row"
+) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin linearTransition($time) {
+  transition: all $time linear;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin absoluteCenter($direction: "left") {
+  position: absolute;
+  @if ($direction == "left") {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @if ($direction == "top") {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @if ($direction == "both") {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin maxWidth($maxWidth) {
+  @media screen and (max-width: $maxWidth) {
+    @content;
+  }
+}
+
+@mixin minWidth($minWidth) {
+  @media screen and (min-width: $minWidth) {
+    @content;
+  }
+}
+
+@mixin hideScroll() {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin textClamp($rows, $size: 100%) {
+  display: -webkit-box;
+  -webkit-line-clamp: $rows;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipse;
+  width: $size;
+  max-width: $size;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+@mixin hoverEffect($item, $content, $transform: true) {
+  #{$item} {
+    position: relative;
+    @include linearTransition(0.25s);
+    z-index: 1;
+    scroll-snap-align: start;
+
+    &:hover {
+      cursor: pointer;
+      #{$content} {
+        opacity: 1;
+        visibility: visible;
+      }
+      &:after {
+        opacity: 1;
+      }
+    }
+    @if ($transform == true) {
+      &::after {
+        position: absolute;
+        content: "";
+        background-color: $third-color;
+        @include size(100%);
+        @include linearTransition(0.25s);
+        inset: 0;
+        z-index: -1;
+        opacity: 0;
+        transform: translate(1rem, 1rem);
+      }
+      &:hover {
+        transform: translate(-1rem, -1rem);
+      }
+    }
+  }
+  #{$content} {
+    z-index: 2;
+    position: absolute;
+    inset: 0;
+    @include flexBox(center, center);
+    color: $white;
+    opacity: 0;
+    visibility: hidden;
+    @include linearTransition(0.25s);
+    background: linear-gradient(
+      180deg,
+      rgba($primary-color, 0.8),
+      rgba($secondary-color, 0.8)
+    );
+  }
+}
+
+@mixin scrollNap($width: "90%", $gap: "2rem", $padding: "1rem") {
+  grid-auto-flow: column;
+  grid-auto-columns: $width;
+  grid-template-columns: unset;
+  grid-row-gap: $gap;
+  padding: $padding;
+  overflow-x: auto;
+  @include hideScroll;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+}
