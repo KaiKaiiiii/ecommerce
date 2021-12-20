@@ -1,22 +1,3 @@
-@mixin flexBetween($direction: "row") {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-@mixin flexCenter($direction: "row") {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: $direction;
-}
-
-@mixin flexBaseline($direction: "row") {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
 @mixin flexBox(
   $align: "flex-start",
   $justify: "flex-start",

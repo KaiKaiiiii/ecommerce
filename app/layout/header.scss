@@ -17,6 +17,14 @@
     letter-spacing: 3rem;
     right: 10rem;
     pointer-events: none;
+    @include maxWidth(1024px) {
+      font-size: 5.4rem;
+      right: 2rem;
+    }
+    @include maxWidth(600px) {
+      font-size: 2.4rem;
+      right: 5rem;
+    }
   }
   &-header__meta-wrapper {
     padding: 0 12rem 0 5rem;
@@ -24,6 +32,12 @@
     position: absolute;
     width: 100%;
     bottom: 12rem;
+    @include maxWidth(1024px) {
+      bottom: 4rem;
+    }
+    @include maxWidth(600px) {
+      display: none;
+    }
   }
   &-header__meta {
     width: 4rem;
@@ -72,10 +86,17 @@
       &:not(:first-child) {
         margin-top: 2rem;
       }
+      @include maxWidth(600px) {
+        display: block;
+      }
     }
     &-img {
       // max-height: 28rem;
       max-width: 60%;
+      @include maxWidth(600px) {
+        max-width: 100%;
+        margin-top: 2rem;
+      }
     }
     &-line {
       width: 40%;
@@ -88,7 +109,7 @@
       margin-top: 10rem;
       @include flexBox(center, center, column);
       &-line {
-        width: 68rem;
+        width: 100%;
         height: 6rem;
         background-color: #c4c4c4;
       }
@@ -113,6 +134,13 @@
         "h1 h1 h1 h1 h1 h1 h2 h3 h3 h3"
         "h4 h5 h5 h5 h6 h6 h6 h6 h6 h6";
       padding-bottom: 5rem;
+      @include maxWidth(768px) {
+        gap: 4px;
+      }
+      @include maxWidth(600px) {
+        gap: 1rem;
+        @include flexBox(stretch, stretch, column);
+      }
     }
     &-item {
       position: relative;
@@ -194,6 +222,9 @@
     // start slider desc
     &-desc-wrapper {
       display: flex;
+      @include maxWidth(600px) {
+        display: block;
+      }
     }
     &-line {
       height: 3rem;
@@ -222,8 +253,8 @@
     &-modal {
       @include absoluteCenter(both);
       @include flexBox(center, center, column);
-      height: 40.5rem;
-      width: 80rem;
+      height: 90%;
+      width: 80%;
       background-color: rgba(255, 255, 255, 0.8);
       padding: 5rem 0;
     }
@@ -232,6 +263,10 @@
       font-size: 1.6rem;
       text-align: center;
       margin-bottom: 6rem;
+      @include maxWidth(600px) {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
       & span {
         display: block;
         font-size: 3.6rem;
@@ -247,6 +282,12 @@
       margin-bottom: 4rem;
       padding: 1rem 0;
       outline: none;
+      @include maxWidth(600px) {
+        margin-bottom: 1rem;
+
+        padding: 0.5rem 0;
+        width: 60%;
+      }
     }
     &-btn {
       width: 16rem;
@@ -261,6 +302,10 @@
       &:hover {
         opacity: 0.8;
         cursor: pointer;
+      }
+      @include maxWidth(600px) {
+        width: 14rem;
+        height: 4rem;
       }
     }
   }
@@ -280,7 +325,87 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 0;
+      @include maxWidth(600px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
     }
   }
 }
 /*# sourceMappingURL=header.scss.map */
+
+.cookies {
+  @include flexBox(center, space-between);
+  padding: 5rem;
+  position: absolute;
+  left: 0;
+  bottom: -30rem;
+  width: 100%;
+  display: none;
+  &__content {
+    @include size(39rem, 21rem);
+    @include flexBox(center, center, column);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 3rem;
+    font-size: 1.3rem;
+  }
+  &__desc {
+    line-height: 1.6;
+    letter-spacing: 1.4;
+    margin-bottom: 2rem;
+  }
+  &__confirm {
+    @include flexBox();
+    justify-content: flex-end;
+    width: 100%;
+  }
+  &__policy {
+    margin-right: 5rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  &__accept {
+    border-bottom: 2px solid #fff;
+    cursor: pointer;
+    padding-bottom: 0.4rem;
+  }
+  &__mess-link {
+    text-decoration: none;
+    align-self: flex-end;
+  }
+  &__icon {
+    @include size(6rem);
+    @include flexBox(center, center);
+    color: #fff;
+    font-size: 2rem;
+    background-color: #000;
+    border-radius: 100rem;
+  }
+}
+
+.error {
+  @include flexBox(center, center, column);
+  height: 100vh;
+  font-size: 1.4rem;
+  display: none;
+  &__img {
+    width: 30rem;
+    margin: 4rem 0;
+  }
+  &__desc {
+    color: $grey82;
+  }
+  &__link {
+    width: 21rem;
+    height: 5rem;
+    background-color: #000;
+    color: #fff;
+    @include flexBox(center, center);
+    text-decoration: none;
+    border-radius: 100rem;
+    & i {
+      margin-right: 1rem;
+    }
+  }
+}

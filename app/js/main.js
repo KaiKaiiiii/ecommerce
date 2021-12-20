@@ -32,9 +32,29 @@ toTop.addEventListener("click", (e) => {
 
 
 //CLICK FAVORITE
-const detailFavorite = $(".detail__favorite");
+// const detailFavorite = $(".detail__favorite");
+// console.log(detailFavorite)
 
-detailFavorite.addEventListener("click", (e) => {
-    const icon = $(".detail__favorite-icon");
-    icon.classList.toggle("favorite-show");
+// detailFavorite.addEventListener("click", (e) => {
+//     const icon = $(".detail__favorite-icon");
+//     icon.classList.toggle("favorite-show");
+// })
+
+//CLICK SHOW NAVBAR SIDE RESPONSIVE
+const listWrapper = $(".header__list-wrapper");
+const navbarIcon = $(".header__navbar-icon");
+navbarIcon.addEventListener("click", (e) => {
+    listWrapper.classList.toggle("active");
+    navbarIcon.style.opacity = "0";
+    e.stopPropagation();
+    window.addEventListener("click", (e)=>{
+        
+        if(listWrapper.matches(".active") ) {
+    navbarIcon.style.opacity = "1";
+
+            listWrapper.classList.toggle("active");
+
+        };
+    })
 })
+

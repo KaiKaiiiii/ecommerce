@@ -2,16 +2,34 @@
   margin-top: calc($navbar-height + 4rem);
   margin-bottom: 12rem;
   display: flex;
+  @include maxWidth(600px) {
+    display: block;
+  }
 }
 
 .listing__side {
   width: 30rem;
+  @include maxWidth(600px) {
+    width: 100%;
+  }
   &-row {
     margin-bottom: 3rem;
+    @include maxWidth(600px) {
+      margin-bottom: 2rem;
+    }
   }
+  &-list {
+    @include maxWidth(600px) {
+      display: flex;
 
+      justify-content: space-between;
+    }
+  }
   &-item {
     margin-bottom: 1.5rem;
+    @include maxWidth(600px) {
+      margin-bottom: 0;
+    }
   }
   &-link {
     color: $black;
@@ -24,6 +42,9 @@
     grid-template-rows: 1fr 1fr;
     gap: 1rem;
     max-width: 15rem;
+    @include maxWidth(600px) {
+      max-width: 100%;
+    }
   }
 
   &-size-selector {
@@ -89,6 +110,13 @@
         border-radius: 100rem;
         color: #fff;
         font-size: 1.4rem;
+        @include maxWidth(600px) {
+          font-size: 1rem;
+          top: 1rem;
+          right: 1rem;
+          width: 3rem;
+          height: 1.5rem;
+        }
       }
     }
   }

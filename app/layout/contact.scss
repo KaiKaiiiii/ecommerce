@@ -7,14 +7,24 @@
     @include flexBox(center, space-between);
     gap: 2rem;
     margin: 8rem 0 10rem;
+    @include maxWidth(600px) {
+      display: block;
+      margin: 2rem;
+    }
   }
   &__item {
     @include flexBox(center, center, column);
     text-align: center;
     font-size: 1.2rem;
+    @include maxWidth(600px) {
+      margin-bottom: 2rem;
+    }
     &-icon {
       margin-bottom: 6rem;
       font-size: 2rem;
+      @include maxWidth(600px) {
+        margin-bottom: 2rem;
+      }
     }
     &-heading {
       font-weight: 700;
@@ -32,11 +42,18 @@
   }
   &__header-desc {
     max-width: 50%;
+    @include maxWidth(600px) {
+      max-width: 100%;
+    }
   }
+
   &__form-wrapper,
   &__accordion-wrapper {
     @include flexBox(flex-start, space-between);
     gap: 2rem;
+    @include maxWidth(600px) {
+      display: block;
+    }
   }
 
   &__accordion-wrapper {
@@ -50,6 +67,9 @@
   &__main-form {
     @include flexBox(flex-start, flex-start, column);
     font-family: "Merriweather Sans", sans-serif;
+    @include maxWidth(600px) {
+      width: 100%;
+    }
     & *:not(:last-child) {
       width: 100%;
       margin-bottom: 2rem;
@@ -65,6 +85,9 @@
   }
 
   &__accordion {
+    @include maxWidth(600px) {
+      width: 100%;
+    }
     &-item {
       // max-height: 7rem;
       padding: 2rem 0;

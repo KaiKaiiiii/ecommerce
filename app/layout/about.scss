@@ -3,30 +3,50 @@
   &-slogan {
     right: 50%;
     letter-spacing: 1rem;
+    text-align: center;
   }
 }
 
 .about__info {
   margin: 9rem 0 6rem;
+  @include maxWidth(600px) {
+    margin: 2rem 0;
+  }
   &-heading {
     font-size: 2.4rem;
     line-height: 2;
     max-width: 80rem;
     margin: 0 auto;
     margin-bottom: 8rem;
+    @include maxWidth(600px) {
+      font-size: 1.4rem;
+      margin-bottom: 4rem;
+      font-weight: bold;
+    }
   }
 }
 
 .about__state {
   @include flexBox(flex-start, space-between);
   gap: 10rem;
+  @include maxWidth(600px) {
+    display: block;
+  }
   &-item {
     width: 50%;
     font-size: 1.6rem;
+    @include maxWidth(600px) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
   &-heading {
     font-weight: 700;
     margin-bottom: 2rem;
+    @include maxWidth(600px) {
+      font-size: 3rem;
+      text-align: center;
+    }
   }
   &-desc {
     font-size: 1.4rem;
@@ -45,6 +65,9 @@
 .about__number {
   padding: 12rem 0 14rem;
   background-color: #f2f2f2;
+  @include maxWidth(600px) {
+    padding: 4rem 0;
+  }
   &-list {
     @include flexBox(flex-start, space-between);
     margin-top: 10rem;
@@ -63,9 +86,17 @@
   max-width: 85rem;
   margin: 13rem auto;
   @include flexBox(center);
+  @include maxWidth(600px) {
+    display: block;
+    margin: 4rem auto;
+  }
   &-media {
     margin-right: 15rem;
     width: 100%;
+    @include maxWidth(600px) {
+      width: 70%;
+      margin: 0 auto;
+    }
   }
   &-img {
     width: 100%;
@@ -83,6 +114,9 @@
     color: $black;
     text-decoration: none;
     @include flexBox(center);
+    @include maxWidth(600px) {
+      justify-content: center;
+    }
     & i {
       margin-left: 1rem;
       width: 4rem;
@@ -98,13 +132,24 @@
   &-list {
     @include flexBox(flex-start, space-between);
     margin-top: 8rem;
+    @include maxWidth(600px) {
+      display: block;
+      margin-top: 4rem;
+    }
   }
   &-item {
     text-align: center;
     font-size: 1.6rem;
+    @include maxWidth(600px) {
+      margin-bottom: 2rem;
+    }
     & i {
       margin-bottom: 4rem;
       font-size: 2.6rem;
+      @include maxWidth(600px) {
+        margin-bottom: 2rem;
+        font-size: 1.4rem;
+      }
     }
   }
   &-desc {
